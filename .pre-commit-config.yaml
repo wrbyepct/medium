@@ -1,42 +1,13 @@
 repos:
-  # - repo: https://github.com/pre-commit/pre-commit-hooks
-  #   rev: v4.6.0
-  #   hooks:
-  #     - id: trailing-whitespace # Remove trailing whitespace
-  #     - id: end-of-file-fixer # Ensure files end with a newline
-  #     - id: check-yaml # Validate YAML files
-  #     - id: debug-statements # Check for debug statements like print()
-  #     - id: check-added-large-files # Check for giant files
-
-  # - repo: https://github.com/pycqa/isort
-  #   rev: 5.13.2
-  #   hooks:
-  #     - id: isort
-  #       name: isort (python)
-
-  # # - repo: https://github.com/pre-commit/mirrors-yapf
-  # #   rev: v0.32.0
-  # #   hooks:
-  # #     - id: yapf
-  # #       additional_dependencies: [toml] # Allow yapf to read config in pyproject.toml
-
-  # - repo: https://github.com/pycqa/flake8
-  #   rev: 7.0.0
-  #   hooks:
-  #     - id: flake8
-  #       additional_dependencies:
-  #         - flake8-pyproject # Allow falke8 to read config in pyproject.toml
-  #         - flake8-bugbear
-  #         - flake8-builtins
-  #         - flake8-coding
-  #         - flake8-polyfill # Dev may develop their flke8 plugin with differenct version, this allows the the backward compatibility
-  #         - flake8-quotes
-
-  - repo: https://github.com/charliermarsh/ruff
-    rev: v0.0.151 # Use the latest version
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.6.3
     hooks:
+      # Run the linter.
       - id: ruff
-        args: ["--fix"]
+        args: [--fix]
+      # Run the formatter.
+      - id: ruff-format
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0

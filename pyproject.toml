@@ -28,6 +28,7 @@ phonenumbers = "^8.13.44"
 argon2-cffi = "^23.1.0"
 pytz = "^2024.1"
 django-taggit = "^6.0.0"
+django-environ = "^0.11.2"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.7.1"
@@ -44,67 +45,15 @@ sqlparse = "^0.5.1"
 ruff = "^0.6.3"
 
 
-# [tool.ruff]
-# per-file-ignores = {
-#     "core/settings/*.py" = ["F821"]
-# }
+[tool.ruff]
+line-length = 88
 
+[tool.ruff.lint]
+extend-select = ["N", "I", "R"]
 
-# [tool.isort]
-# profile = "black"
-# line_length = 119
-# use_parentheses = true
-# multi_line_output = 3
-# force_grid_wrap = 0
-# include_trailing_comma = true
-# ensure_newline_before_comments = true
-# known_first_party = ["core"]  # Replace 'core' with your actual application name(s)
-# known_third_party = ["decimal"]
-# known_django = [
-#     "django",
-#     "rest_framework",
-#     "rest_framework_simplejwt",
-# ]
-# known_test = [
-#     "pyest",
-#     "faker",
-# ]
-# sections = [
-#     "STDLIB",
-#     "DJANGO",
-#     "THIRDPARTY",
-#     "TEST",
-#     "FIRSTPARTY",
-#     "LOCALFOLDER",
-# ]
-# default_section = "THIRDPARTY"
-# force_sort_within_sections = true
-
-# [tool.yapf]
-# based_on_style = "google"
-# align_closing_bracket_with_visual_indent = true
-# # coalesce_brackets = false
-# column_limit = 119
-# dedent_closing_brackets = true
-
-# [tool.flake8]
-# ignore = "C101, Q000"
-# exclude = [".git", "__pycache__", "docs/source/conf.py", ".venv", "*/migrations/*"]
-# per-file-ignores = [ 
-#     "core/settings/__init__.py: F821",
-#     "core/project/settings/base.py: F821",
-#     "local/settings.local.py: F821",
-#     "core/settings/project.py: F821",
-#     "core/tests/product/fixtures/__init__.py: F405, F403",
-# ]
-# filename = "*.py"
-# accept-encodings = "utf-8"
-# max-complexity = 10
-# max-line-length = 119
-# max-linenumber = 500
-# inline-quotes = "single"
-# multiline-quotes = "double"
-# application-import-names = "core"
+[tool.ruff.lint.per-file-ignores]
+"core/settings/*.py" = ["F821"]
+"local/*.py" = ["F821"]
 
 [tool.pytest.ini_options]
 django_find_project = false
