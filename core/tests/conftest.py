@@ -1,0 +1,13 @@
+import pytest
+
+pytest_plugins = ["core.tests.apps.user.fixtures"]
+
+
+def pytest_collection_modifyitems(items):
+    for item in items:
+        if "structure" in item.name:
+            item.add_marker(pytest.mark.structure)
+        if "behavior" in item.name:
+            item.add_marker(pytest.mark.behavior)
+        if "endpoint" in item.name:
+            item.add_marker(pytest.mark.endpoint)

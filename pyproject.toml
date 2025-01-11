@@ -94,7 +94,7 @@ max-complexity = 8
 [tool.ruff.lint.per-file-ignores]
 "core/settings/*.py" = ["F821", "PGH003"]
 "local/*.py" = ["F821"]
-"**/tests/**/*.py" = [
+"core/tests/*.py" = [
     "S101", 
     "INP001", 
     "ANN201", 
@@ -140,8 +140,9 @@ python_files = "test_*.py"
 testpaths = ["core/tests"]
 filterwarnings = ["ignore::DeprecationWarning", "ignore::pytest.PytestCacheWarning"]
 markers = [
-    "model: tests for model", 
-    "model_structure: tests for model structure."
+    "behavior: tests for model behavior", 
+    "structure: tests for model structure.",
+    "endpoint: tests for api endpoint."
 ]
 
 

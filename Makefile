@@ -55,7 +55,7 @@ test-lf:
 .PHONY:test-r
 test-r:
 	@RUNNING_MODE=test \
-	poetry run pytest -v -rs -n auto --show-capture=no --cache-clear \
+	docker-compose -f local.yml run --rm api pytest -v -rs -n auto --show-capture=no --cache-clear \
 	--cov=core --cov-report term-missing --cov-report html --cov-config=pyproject.toml
 
 
