@@ -139,9 +139,9 @@ def test_user_behavior__delete_user_successful(normal_user):
         User.objects.get(pk=user_pk)
 
 
-def test_user_model_behavior__normalize_email_correct(normal_user, super_user):
-    email_1 = normal_user.email
-    email_2 = super_user.email
+def test_user_model_behavior__normalize_email_correct(super_user, normal_user):
+    email_1 = super_user.email
+    email_2 = normal_user.email
     assert email_1 == email_1.lower()
     assert email_2 == email_2.lower()
 
