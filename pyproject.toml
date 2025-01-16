@@ -99,8 +99,11 @@ max-complexity = 8
     "INP001", 
     "ANN201", 
     "ANN001", 
+    "ARG002",
     "D",
-    "PT006" #  Wrong type passed to first argument of `@pytest.mark.parametrize`; expected `tuple`
+    "PT006", #  Wrong type passed to first argument of `@pytest.mark.parametrize`; expected `tuple`
+    "ERA001",
+    "W291",
 ]
 "**/migrations/**/*.py" = [
     "ANN001", 
@@ -144,7 +147,6 @@ addopts = """
     -n auto
     --dist loadfile
     --durations=10
-    --cache-clear
 
 """
 markers = [

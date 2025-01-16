@@ -1,6 +1,10 @@
 import pytest
 
-pytest_plugins = ["core.tests.user.fixtures", "core.tests.fixtures"]
+pytest_plugins = [
+    "core.tests.user.fixtures",
+    "core.tests.fixtures",
+    "core.tests.articles.fixtures",
+]
 
 
 def pytest_collection_modifyitems(items):

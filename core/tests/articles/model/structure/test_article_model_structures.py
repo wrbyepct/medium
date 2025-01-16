@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 
 from core.apps.articles.models import Article
+from core.utils.hash import generate_hashed_slug
 
 
 @pytest.mark.parametrize(
@@ -50,7 +51,12 @@ def test_article_model_structure__field_type_correct(field_name, field_type):
         ),
         (
             "slug",
-            [("populate_from", "title"), ("always_update", True), ("unique", True)],
+            [
+                ("populate_from", generate_hashed_slug),
+                ("always_update", True),
+                ("unique", True),
+                ("max_length", 300),
+            ],
         ),
     ],
 )
