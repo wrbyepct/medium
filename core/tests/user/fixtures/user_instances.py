@@ -1,4 +1,5 @@
 import pytest
+from rest_framework.test import APIClient
 
 
 @pytest.fixture
@@ -9,3 +10,10 @@ def normal_user(user_factory):
 @pytest.fixture
 def super_user(user_factory):
     return user_factory.create(is_superuser=True, is_staff=True)
+
+
+@pytest.fixture
+def authenticated_client(normal_user):
+    client = APIClient()
+    client.force_authenticate(user=normal_user)
+    return client

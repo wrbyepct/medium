@@ -76,10 +76,10 @@ class Article(TimestampedModel):
         null=True,
         blank=True,
     )
-    tags = TaggableManager()
     slug = AutoSlugField(populate_from="title", always_update=True, unique=True)
 
     author = models.ForeignKey(User, related_name="articles", on_delete=models.CASCADE)
+    tags = TaggableManager()
     statistic_objects = ArticleManager()
     objects = models.Manager()
 

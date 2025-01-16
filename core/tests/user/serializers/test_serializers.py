@@ -45,6 +45,7 @@ def test_user_register_serializer__save_method_return_user_instance(
     assert serializer.is_valid()
 
     user = serializer.save(mock_request)
+
     assert user.email == user_data["email"]
     assert user.first_name == user_data["first_name"]
     assert user.last_name == user_data["last_name"]

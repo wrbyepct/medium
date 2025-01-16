@@ -144,12 +144,14 @@ addopts = """
     -n auto
     --dist loadfile
     --durations=10
+    --cache-clear
 
 """
 markers = [
+    "view: tests for model views",
     "behavior: tests for model behavior", 
     "structure: tests for model structure.",
-    "endpoint: tests for api endpoint."
+    "flow: tests for api flow."
 ]
 
 
