@@ -1,5 +1,4 @@
 # ruff: noqa: ARG002
-from unittest.mock import patch
 
 import pytest
 
@@ -47,9 +46,10 @@ def test_article_read_time_engine__word_count_correct(text, expected_count):
 
 
 # Mock the function .update() called by ArticleDocument to prevent index update
-@patch("core.apps.articles.documents.ArticleDocument.update")
+
+
 def test_artciel_read_time_engine__get_read_time_with_tags_no_image(
-    mock_update,  # noqa: ARG001
+    mock_article_index_update,
     article_factory,
 ):
     """

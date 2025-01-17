@@ -1,7 +1,6 @@
 import factory
 from django.db.models.signals import post_delete, post_save
 from faker import Faker
-from pytest_factoryboy import register
 
 from core.apps.articles.models import Article
 from core.tests.user.fixtures.factories import UserFactory
@@ -27,6 +26,3 @@ class ArticleFactory(factory.django.DjangoModelFactory):
 
         if extracted:
             self.tags.set(extracted)
-
-
-register(ArticleFactory)

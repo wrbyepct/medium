@@ -14,7 +14,9 @@ pytestmark = pytest.mark.django_db
 User = get_user_model()
 
 
-def test_user_register_flow(user_data):
+def test_user_register_flow(
+    mock_create_user_profile, mock_create_user_reading_category, user_data
+):
     client = APIClient()  # only it can store crendietial token
 
     # Register user
@@ -39,9 +41,8 @@ def test_user_register_flow(user_data):
     # Login user
     login_data = {"email": user_data["email"], "password": user_data["password1"]}
     response = client.post(reverse("rest_login"), login_data)
-
-    client.credentials(HTTP_AUTHORIZATION=f"Bearer {response.data['access']}")
-    return client
+    assert response.status_code == status.HTTP_200_OK
+    assert "access" in response.data
 
 
 def test_user_flow_rest_password_flow_successful(normal_user):

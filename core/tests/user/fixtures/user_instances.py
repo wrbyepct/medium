@@ -1,6 +1,8 @@
 import pytest
 from rest_framework.test import APIClient
 
+pytestmark = pytest.mark.django_db
+
 
 @pytest.fixture
 def normal_user(user_factory):

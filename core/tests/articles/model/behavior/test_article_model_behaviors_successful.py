@@ -5,7 +5,11 @@ pytestmark = pytest.mark.django_db
 
 
 def test_article_model_behavior__create_article_successful(
-    normal_user, article_factory
+    mock_create_user_profile,
+    mock_create_user_reading_category,
+    normal_user,
+    mock_article_index_update,
+    article_factory,
 ):
     article = article_factory.create(author=normal_user, tags=["a", "b"])
 
@@ -13,7 +17,7 @@ def test_article_model_behavior__create_article_successful(
     assert article.description is not None
     assert article.body is not None
     assert article.author == normal_user
-    assert article.tags == ["a", "b"]
+    assert list(article.tags.names()) == ["a", "b"]
 
     slug_prefix = slugify(article.title)
 
